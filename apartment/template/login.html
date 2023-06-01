@@ -1,0 +1,142 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+      <title>{% block title %}Login{% endblock %}</title>
+    <style>
+        body{
+            background-image: url('static/log.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .form-control{
+            background-color: rgb(194, 236, 243);
+            padding: 20px;
+            border-radius: 20px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: rgb(195, 219, 243);
+            width: 300px;
+          
+           
+        }
+        .form-control:focus {
+        border-color: rgb(194, 233, 233);
+        background-color: rgb(217, 234, 240);
+        
+    }
+    .form-group{
+        -webkit-margin-bottom-collapse: 00px;
+    }
+    .container-fluid {
+        border: 1.7px solid rgb(254, 247, 247);
+        padding: 10px;
+        width: 550px;
+        border-color: rgb(3, 136, 3);
+        border-radius: 60px;
+        background-color: rgba(58, 52, 52, 0.226);
+        margin-top: 20px;
+        
+       
+    }
+    .form-container label,
+    .form-container input {
+        display: block;
+       
+    }
+    .text-style{
+        margin-bottom: 5px;
+        font-family: 'Times New Roman', Times, serif;
+        color: azure;
+       
+    }
+    .navbar {
+    background-color: #bbe7d9; /* Set your desired background color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-brand img {
+    height: 20px; /* Set your desired logo height */
+    margin-right: 5px; /* Set spacing between logo and text */
+  }
+.navbar-nav .nav-item:first-child {
+  margin-right: auto;
+}
+    </style>
+   
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="static/logo.jpg" alt="Logo"> <!-- Replace with your logo image path -->
+        JMT Booking
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="margin-left: 33.33%;">
+          <li class="nav-item active">
+            <a class="nav-link text-center" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-center" href="{% url 'about' %}">About Us</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-center" href="{% url 'contact' %}">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    {% block content %}
+    <div class="container-fluid" >
+    <center>
+        
+        <div class="text-style" style="margin-bottom: 30px;"><h1>Login Here</h1> </div>
+            <div class="row">
+                <div class="col-mod-4" style="margin: 0 auto;">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="text-style"><h6>Username</h6></label>
+                            <input type="text" name="name" class="form-control" style="width: 30;">
+                        </div>
+        
+                        <div class="form-group">
+                            <label class="text-style"><h6>Password</h6></label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary" style="font-family: MV Boli;width:300px;border-radius: 20px ;margin-top: 20px;">Login</button><br><br>
+                        <div>
+                        <a href="{%url 'signup'%}" class="bg-transparent text-white-50">Create an Account   ,</a>
+                        <a href="{% url 'email' %}" class="bg-transparent text-white-50">Forget Password</a>
+                      </div>
+                        <!-- <a href="#" style="color: rgb(69, 146, 255);"><i>Logout</i></a> -->
+                    </form>
+                </div>
+            </div>
+       
+        
+</center>
+</div>
+    {% endblock %}
+
+    </body>
+</html>

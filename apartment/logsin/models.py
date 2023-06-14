@@ -9,8 +9,10 @@ class Apartment(models.Model):
 
     aprt_type = models.CharField(blank=True, max_length=20, choices=TYPE_CHOICES)
     picture = models.ImageField(blank=True)
-    room_features = models.CharField(max_length=30, default='Guest')
-    description = models.TextField(default='Available in LictLibrary')
+    room_features = models.CharField(max_length=30)
+    room_price = models.CharField(max_length=50, blank=True)
+    location = models.CharField( max_length=100, default='Gaindakot,Nawalpur')
+    description= models.TextField(blank=True)
 
     def __str__(self):
         return self.aprt_type

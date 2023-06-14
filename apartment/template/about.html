@@ -1,0 +1,160 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+<center>
+  <h3 class="heading" style="color:#fff; margin-top: 4rem;"></h3>
+</center>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    header {
+      background-color: #343a40;
+      padding: 20px;
+    }
+
+    header h1 {
+      color: #fff;
+      font-size: 36px;
+      margin-bottom: 0;
+    }
+
+    main {
+      padding: 50px 0;
+    }
+
+    main h1 {
+      color: #343a40;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    main p {
+      color: #6c757d;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .mission-section {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-section {
+      background-color: #f8f9fa;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-section h2 {
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 0;
+    }
+
+    .social-icons {
+      font-size: 24px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin-right: 10px;
+    }
+    .navbar-custom .navbar-nav .nav-link {
+  color:rgb(172, 170, 170); /* Replace with your desired color */
+  font-weight: bold;
+}
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #dfdada; /* hover color */
+  }
+.navbar-custom .navbar-brand{
+  color: rgb(172, 170, 170); /* Replace with your desired color */
+  font-weight: bold;
+}
+.navbar-custom .navbar-brand:hover {
+    color: #dfdada; /* hover color */
+  }
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-brand img {
+    height: 20px; /* Set your desired logo height */
+    margin-right: 5px; /* Set spacing between logo and text */
+  }
+.navbar-nav .nav-item:first-child {
+  margin-right: auto;
+}
+nav ul li .nav-link{
+  color:#def3ec
+}
+  </style>
+</head>
+<body>
+  <main class="container mt-4">
+    <div class="row">
+      <div class="col-lg-6" style="color: #11f0a5;">
+        <h1>About Us</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel est et nisi commodo viverra. Sed ullamcorper magna id cursus pellentesque. Mauris sodales nisl ut pulvinar consectetur. Sed scelerisque ultrices augue id dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer mattis sem at nunc luctus vestibulum. Aenean fringilla dapibus urna, ut semper est vulputate id. Vivamus maximus, nisi vitae bibendum auctor, nulla ex malesuada risus, sit amet posuere nisi tortor nec mauris.</p>
+      </div>
+      <div class="col-lg-6">
+        <img src="static/w3.jpg" alt="Company Logo" class="img-fluid">
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col">
+        <div class="mission-section">
+          <h1>Our Mission</h1>
+          <p>Nulla tempor efficitur lacinia. In laoreet, elit et interdum fringilla, ante nibh ultrices metus, nec ultricies dui risus ac urna. Sed bibendum mauris a dapibus feugiat. Fusce in tristique odio, a suscipit ligula. Morbi eget mi tincidunt, efficitur lacus vitae, semper metus. Fusce eleifend tellus a nunc condimentum ultricies. Curabitur aliquam lectus a elit lobortis viverra. Nulla interdum nibh vel velit rutrum, et fermentum ligula auctor.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col">
+        <div class="team-section">
+          <h2>Our Team</h2>
+          <ul>
+            <li>John Doe - CEO</li>
+            <li>Jane Smith - CTO</li>
+            <li>Mike Johnson - CFO</li>
+          </ul>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="text-center py-4">
+    <p>&copy; 2023 Your Company. All rights reserved.</p>
+  </footer>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
+
+{%endblock%}

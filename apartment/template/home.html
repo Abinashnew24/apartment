@@ -9,18 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <style>
-      .navbar {
-    background-color: #bbe7d9; /* Set your desired background color */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .navbar-brand {
     display: flex;
     align-items: center;
   }
-
   .navbar-brand img {
     height: 20px; /* Set your desired logo height */
     margin-right: 5px; /* Set spacing between logo and text */
@@ -28,9 +20,12 @@
 .navbar-nav .nav-item:first-child {
   margin-right: auto;
 }
+nav ul li .nav-link{
+  color:#def3ec
+}
       body
       {
-  background-image: url('static/log.jpg');
+  background-image: url('static/w4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed; /* Add this line to make the background image fixed */
@@ -75,6 +70,9 @@
         font-family: 'Times New Roman', Times, serif;
         color: azure;
     }
+    .card-body p{
+color: #dfdada;
+    }
         .card {
   transition: transform 0.2s ease-in-out;
 }
@@ -87,8 +85,8 @@
 
       .card {
       width: 18rem;
-      background-color: rgb(247, 247, 248);
-      height: 24rem;
+      background-color: rgba(247, 247, 248, 0);
+      height: 18rem;
       border-radius: 10px;
       border-color: rgb(73, 70, 70);
       border-width: 2px;
@@ -105,16 +103,30 @@
       max-width: 20rem;
       object-fit: cover;
     }
-    
+   
+.navbar-custom .navbar-nav .nav-link {
+  color:rgb(172, 170, 170); /* Replace with your desired color */
+  font-weight: bold;
+}
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #dfdada; /* hover color */
+  }
+.navbar-custom .navbar-brand{
+  color: rgb(172, 170, 170); /* Replace with your desired color */
+  font-weight: bold;
+}
+.navbar-custom .navbar-brand:hover {
+    color: #dfdada; /* hover color */
+  }
   </style>
 
     <title>{% block title %}Home Page{% endblock %}</title>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="{% url 'home' %}">
-        <img src="static/logo.jpg" alt="Logo"> <!-- Replace with your logo image path -->
+  <body style="overflow-x: hidden;">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom" style="background-color: #f7f7f700;">
+      <a class="navbar-brand" style="margin-left: 2rem;" href="{% url 'home' %}">
+        <img  src="static/logo.jpg" alt="Logo"> <!-- Replace with your logo image path -->
         JMT Booking
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,22 +134,22 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" style="margin-left: 33.33%;">
-          <li class="nav-item active">
-            <a class="nav-link text-center" href="{% url 'home' %}">Home</a>
+        <ul class="navbar-nav mr-auto navbar-cutom" style="margin-left: 20rem;">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link text-center" href="{% url 'about' %}">About Us</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About Us</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link text-center" href="{% url 'contact' %}">Contact Us</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
           </li>
         </ul>
-        <ul class="navbar-nav" style="margin-right: 0;">
-          <li class="nav-item active">
+        <ul class="navbar-nav" style="margin-right: 5rem;">
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">Login</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'signup' %}">Signup</a>
           </li>
         </ul>
@@ -148,52 +160,60 @@
     <div class="content-container">
       <center>
         <div>
-          <h1 class="heading" style="color: #def3ec;">Available Now</h1>
+          <h1 class="heading" style="color: #def3ec; margin-top: 2rem;" >Available Now</h1>
         </div>
       </center><br>
     
-      <div class="row">
+      <div class="row" style="padding-left: 60px;padding-right: 60px;">
         {% for Apartment in upload %}
         <div class="col-md-3">
-          <div class="card">
+          <div class="card" onclick="openModal('{{ Apartment.picture.url}}', '{{ Apartment.aprt_type}}','{{ Apartment.location}}', '{{ Apartment.room_features}}','{{ Apartment.room_price}}','{{ Apartment.description}}')">
             <img class="card-img-top" src="{{ Apartment.picture.url }}">
             <div class="card-body">
-              <h5 class="card-title mt-4">{{Apartment.aprt_type}}</h5>
-              <p class="card-title">{{Apartment.room_features}}</p>
-              <p class="card-text">{{Apartment.description}}</p>
-              <div class="card-footer bg-transparent border-dark d-flex justify-content-center">
-              
-                <a href="#" class="btn btn-success mr-2">Book Now</a>
-                <button type="button" class="btn btn-primary mx-2" data-toggle="modal" data-target="#myModal">View</button>
-                
-              </div> 
+              <p class="card-title mt-1">{{Apartment.aprt_type}}</p>
+              <p class="card-title">{{Apartment.room_price}}</p>
+              <p class="card-text">{{Apartment.location}}</p> 
             </div>
           </div>
         </div>
         {% endfor %}
       </div>
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Apartment Details</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <img class="card-img-top" src="#">
-              <h5 class="card-title mt-4">Apartment.aprt_type</h5>
-              <p class="card-title">Apartment.room_features</p>
-              <p class="card-text">Apartment.description</p>
-            </div> </div> </div> </div> 
-            
     </div>
-    {% endblock %}
-
-
-    <!-- Bootstrap JS and any other scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Modal HTML -->
+        <div id="myModal" class="modal fade">
+          <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="modalApart_Type"></h5>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                      <img id="modalPicture" src="" class="img-fluid mb-3" alt="Apartment Image">
+                      <p id="modalApart_Type"></p>
+                      <p id="modalLocation"></p>
+                      <p id="modalRoomprice"></p>
+                      <p id="modalRoomFeatures"></p>
+                      <p id="modalDescription"></p>
+                      <a href="{% url 'booking' %}" class="btn btn-success">Book Now</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+      <script>
+          function openModal(pictureUrl, type, location, roomfeatures, roomprice, description) {
+              document.getElementById('modalPicture').src = pictureUrl;
+              document.getElementById('modalApart_Type').innerText = type;
+              document.getElementById('modalLocation').innerText = location;
+              document.getElementById('modalRoomprice').innnerText = roomprice;
+              document.getElementById('modalRoomFeatures').innerText = roomfeatures;
+              document.getElementById('modalDescription').innnerText = description;
+              $('#myModal').modal('show');
+          }
+      </script>
+      {% endblock %}
   </body>
-</html>
+  </html>

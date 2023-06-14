@@ -1,76 +1,85 @@
 {% extends 'home.html' %}
 {% load static %}
 {% block content %}
-<center><h3 class="heading" style='color:#fff'>Contact Us</h3></center>
+<center>
+  <h3 class="heading" style="color:#fff; margin-top: 2rem;">Contact Us</h3>
+</center>
+
 <style>
-  
+  .container-fluid {
+         
+        padding: 15px;
+        width: 50rem;
+        border-color: rgb(8, 1, 24);
+        border-radius: 10px;
+        background-color: rgba(58, 52, 52, 0.226);
+        margin-top: 80px;
+  }
+  .container-fluid img {
+    max-width: 150%; /* Set images to inherit the width of the parent div */
+  }
 
-.container-fluid {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
+  .form-group {
+    margin-bottom: 15px;
+  }
 
-.container-fluid > div {
-  width: 500px;
-}
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
-.container-fluid > div:nth-child(2) {
-  width: 400px;
-}
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
 
-.container-fluid img {
-  width: inherit;
-}
+  button:hover {
+    background-color: #0056b3;
+  }
+  footer {
+      background-color: #343a40;
+      color: #fff;
+      padding:20px;
+      text-align: center;
+    }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
+    footer p {
+      margin-bottom: 0;
+    }
 </style>
-<div class="container-fluid d-flex flex-row justify-content-around ">
-    <div class="" style="width: 300px;">
-        <img src="static/logo.jpg" alt="logo" style="width: inherit;">
-    </div>
-    <div class="" style="width: 400px;">
-      <form method="post" action="#">
-          {% csrf_token %}
-          <div class="form-group">
-              <input type="text" name="uname" placeholder="Enter Your Name">
-          </div>
-          <div class="form-group">
-              <input type="text" name="phone" placeholder="Enter Your Phone Number">
-          </div>
-          <div class="form-group">
-              <input type="text" name="address" placeholder="Enter Your Address">
-          </div>
-          <div class="form-group">
-              <input type="text" name="house" placeholder="Enter Your House Number">
-          </div>
-          <center><button type="submit" name="button" class="btn btn-outline-primary  ">Submit</button></center>
 
-      </form>
+<div class="container-fluid d-flex flex-row justify-content-around">
+  <div class="" style="">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5084.771436573475!2d84.40310657181244!3d27.70488892806364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb6fdfd935ed%3A0x29e6424f203a7aec!2z4KSy4KWB4KSu4KWN4KSs4KS_4KSo4KWAIOCkhuCkiOCkuOClgOCkn-ClgCDgpJXgpY3gpK_gpL7gpK7gpY3gpKrgpLg!5e0!3m2!1sen!2snp!4v1645694999957!5m2!1sen!2snp" width="300" height="300" style="border:1;" allowfullscreen="" loading="lazy"></iframe>
   </div>
-
+  <div class="" style="width: 24rem;">
+    <form method="post" action="#">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" name="uname" placeholder="Enter Your Name">
+      </div>
+      <div class="form-group">
+        <input type="text" name="phone" placeholder="Enter Your Phone Number">
+      </div>
+      <div class="form-group">
+        <input type="text" name="address" placeholder="Enter Your Address">
+      </div>
+      <div class="form-group">
+        <input type="text" name="email" placeholder="Enter Your Email ">
+      </div>
+      <center>
+        <button type="submit" name="button" class="btn btn-outline-primary">Submit</button>
+      </center>
+    </form>
+  </div>
 </div>
+<footer class="text-center py-4" style="margin-top: 3rem;">
+  <p>&copy; 2023 Your Company. All rights reserved.</p>
+</footer>
 {% endblock %}

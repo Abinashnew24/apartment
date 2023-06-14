@@ -9,8 +9,8 @@ def signup(request):
     if request.method=='POST':
         uname = request.POST['username']
         email=request.POST['email']
-        pass1 = request.POST['password1']
-        cpass1=request.POST['password2']
+        pass1 = request.POST['password']
+        cpass1=request.POST['cpassword']
 
         if pass1!=cpass1:
             return HttpResponse('password and confirm password are not same')
@@ -24,7 +24,7 @@ def signup(request):
 def Login(request):
     if request.method=='POST':
         username=request.POST['username']
-        pass1=request.POST['pass']
+        pass1=request.POST['password']
         user = authenticate(request,username=username,password=pass1)
 
         if user is not None:
@@ -56,3 +56,5 @@ def Contact(request):
     return render(request,'contact.html')
 def About(request):
     return render(request,'about.html')
+def Booking(request):
+    return render(request,'booking.html')

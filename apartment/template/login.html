@@ -12,7 +12,7 @@
       <title>{% block title %}Login{% endblock %}</title>
     <style>
         body{
-            background-image: url('static/log.jpg');
+            background-image: url('static/w4.jpg');
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -42,13 +42,14 @@
         border-color: rgb(3, 136, 3);
         border-radius: 60px;
         background-color: rgba(58, 52, 52, 0.226);
-        margin-top: 20px;
+        margin-top: 6rem;
         
        
     }
     .form-container label,
     .form-container input {
         display: block;
+        
        
     }
     .text-style{
@@ -57,13 +58,6 @@
         color: azure;
        
     }
-    .navbar {
-    background-color: #bbe7d9; /* Set your desired background color */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .navbar-brand {
     display: flex;
     align-items: center;
@@ -76,30 +70,45 @@
 .navbar-nav .nav-item:first-child {
   margin-right: auto;
 }
+.navbar-custom .navbar-nav .nav-link {
+  color:rgb(172, 170, 170); /* Replace with your desired color */
+  font-weight: bold;
+}
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #dfdada; /* hover color */
+  }
+.navbar-custom .navbar-brand{
+  color: rgb(172, 170, 170); /* Replace with your desired color */
+  font-weight: bold;
+}
+.navbar-custom .navbar-brand:hover {
+    color: #dfdada; /* hover color */
+  }
     </style>
    
   </head>
   <body>
     
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="{% url 'home' %}">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom" style="background-color: #f7f7f700;">
+     <div>
+      <a class="navbar-brand" style="margin-left: 2rem;" href="{% url 'home' %}">
         <img src="static/logo.jpg" alt="Logo"> <!-- Replace with your logo image path -->
         JMT Booking
-      </a>
+      </a> </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" style="margin-left: 33.33%;">
-          <li class="nav-item active">
-            <a class="nav-link text-center" href="{% url 'home' %}">Home</a>
+        <ul class="navbar-nav mr-auto navbar-cutom" style="margin-left: 20rem;">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link text-center" href="{% url 'about' %}">About Us</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">About Us</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link text-center" href="{% url 'contact' %}">Contact Us</a>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
           </li>
         </ul>
       </div>
@@ -109,14 +118,14 @@
     <div class="container-fluid" >
     <center>
         
-        <div class="text-style" style="margin-bottom: 30px;"><h1>Login Here</h1> </div>
+        <div class="text-style" style="margin-bottom: 30px; "><h1>Login Here</h1> </div>
             <div class="row">
                 <div class="col-mod-4" style="margin: 0 auto;">
                     <form method="post" action="">
                         {% csrf_token %}
                         <div class="form-group">
                             <label class="text-style"><h6>Username</h6></label>
-                            <input type="text" name="name" class="form-control" style="width: 30;">
+                            <input type="text" name="username" class="form-control" style="width: 30;">
                         </div>
         
                         <div class="form-group">
@@ -125,8 +134,8 @@
                         </div>
                         <button type="submit" class="btn btn-outline-primary" style="font-family: MV Boli;width:300px;border-radius: 20px ;margin-top: 20px;">Login</button><br><br>
                         <div>
-                        <a href="{%url 'signup'%}" class="bg-transparent text-white-50">Create an Account   ,</a>
-                        <a href="{% url 'email' %}" class="bg-transparent text-white-50">Forget Password</a>
+                        <a href="{%url 'signup'%}" class="bg-transparent text-blue-50">Create an Account ,</a>
+                        <a href="{% url 'email' %}" class="bg-transparent text-white-50">Forget Password ?</a>
                       </div>
                         <!-- <a href="#" style="color: rgb(69, 146, 255);"><i>Logout</i></a> -->
                     </form>

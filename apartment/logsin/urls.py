@@ -10,6 +10,7 @@ urlpatterns=[
     path('email',views.send_template_email,name='email'),
     path('contact',views.Contact,name='contact'),
     path('about',views.About,name='about'),
+    path('booking',views.Booking,name='booking'),
 
 
 ]
